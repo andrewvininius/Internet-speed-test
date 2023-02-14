@@ -1,0 +1,2 @@
+#importando
+import speedtest
