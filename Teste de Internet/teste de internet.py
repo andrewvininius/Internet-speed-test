@@ -51,20 +51,22 @@ l_logo_linha.place(x=0, y=57)
 
 def main():
     st = speedtest.Speedtest() 
-    print(f"{'{:.2f}'.format(st.download()/1024/1024)}")
-    print(f"{'{:.2f}'.format(st.upload()/1024/1024)}")
+    
+    download = f"{'{:.2f}'.format(st.download()/1024/1024)}"
+    upload= f"{'{:.2f}'.format(st.upload()/1024/1024)}"
 
     l_download['text'] = download
     l_upload['text'] = upload
-
-
+    
+    botao_testar['text']='Teste novamente'
+    botao_testar.place(x=115, y=100)
 
 
 # configurando o frame_corpo
 l_download= Label(Frame_corpo, text='', anchor=NW, font=("arial 28"),bg=co1,fg=co4)
-l_download.place(x=44, y=25)
-l_download= Label(Frame_corpo, text='Mbps Download', anchor=NW, font=("Ivy 10"),bg=co1,fg=co4)
-l_download.place(x=30, y=70)
+l_download.place(x=30, y=25)
+l_download_mb= Label(Frame_corpo, text='Mbps Download', anchor=NW, font=("Ivy 10"),bg=co1,fg=co4)
+l_download_mb.place(x=30, y=70)
 
 #configurado o frame_down 
 imagem_down = Image.open('down.png')
@@ -78,8 +80,8 @@ l_logo_imagem.place(x=130, y=35)
 #configurando o frame_corpo
 l_upload= Label(Frame_corpo, text='', anchor=NW, font=("arial 28"),bg=co1,fg=co4)
 l_upload.place(x=235, y=25)
-l_upload= Label(Frame_corpo, text='Mbps upload', anchor=NW, font=("Ivy 10"),bg=co1,fg=co4)
-l_upload.place(x=230, y=70)
+l_upload_mb= Label(Frame_corpo, text='Mbps upload', anchor=NW, font=("Ivy 10"),bg=co1,fg=co4)
+l_upload_mb.place(x=240, y=70)
 
 #configurado o frame_up
 imagem_up = Image.open('up.png')
@@ -91,8 +93,8 @@ l_logo_imagem = Label(Frame_corpo, height=60,image=imagem_up, compound=LEFT, pad
 l_logo_imagem.place(x=170, y=35)
 
 # configuraçao do botao de teste de novo
-l_testar = Button(Frame_corpo,command= main, text='Iniciar Testar', font=("Ivy 10 bold"), relief=RAISED,overrelief= RIDGE ,bg=co5,fg=co1)
-l_testar.place(x=135, y=100)
+botao_testar = Button(Frame_corpo,command= main, text='Iniciar Testar', font=("Ivy 10 bold"), relief=RAISED,overrelief= RIDGE ,bg=co5,fg=co1)
+botao_testar.place(x=130, y=100)
 
 
 
